@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/php/formbasico4.php" method="post" >
+        <p>Escriba la cantidad de dinero(valores entre 1 y 1.000.000) y elija la divisa</p>
+        <br>
+        <p>Convertir en euros: <input type="number" min="1" max="1000000" name="cantidad"></p>
+        <p><input type="radio" name="divisa" value="Dolares">Dolares  <input type="radio" name="divisa" value="Pesos">Pesos <input type="radio" name="divisa" value="Yenes">Yenes <input type="radio" name="divisa" value="Pesetas">Pesetas  </p>
+       <input type="submit" name="enviar" value="Enviar">
+        <input type="reset" name="borrar" value="Borrar">
+
+
+    </form>      
+
+</body>
+</html>
