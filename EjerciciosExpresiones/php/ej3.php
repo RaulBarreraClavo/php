@@ -12,9 +12,9 @@
         $respuesta="";
         
         if(preg_match($patron,$texto)){
-            $respuesta=$respuesta."La cadena contiene el patron <br>";
+            $respuesta=$respuesta."La cadena contiene el patron ";
         }else{
-            $respuesta=$respuesta."La cadena no contiene el patron <br>";
+            $respuesta=$respuesta."La cadena no contiene el patron ";
         }
        
 
@@ -24,12 +24,18 @@
     function fecha($fecha){
        $respuesta= validar("/^[0-9]{2}[\/][0-9]{2}[\/][0-9]{4}$/",$fecha);
 
-        return $respuesta;
+        return $respuesta." fecha valida<br>";
+    }
+    function numero($numero){
+        $respuesta= validar("/^[6||9][0-9]{8}$/",$numero);
+
+        return $respuesta." numero valido<br>";
     }
    
     $texto=($_REQUEST["texto"] );
     echo"<p>",$texto,"</p>";
     echo "<p>",fecha($texto),"</p>";
+    echo "<p>",numero($texto),"</p>";
     
     ?>
 </body>

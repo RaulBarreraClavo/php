@@ -11,17 +11,17 @@
     function validar($texto){
         $respuesta="";
         
-        if(preg_match("/^([[:alpha:]][\s]+)+$/",$texto)){
+        if(preg_match("/^[[:alpha:]]( +[[:alpha:]])*$/",$texto)){
             $respuesta=$respuesta."La cadena contiene una o más letras sueltas separadas por espacios <br>";
         }else{
             $respuesta=$respuesta."La cadena no contiene una o más letras sueltas separadas por espacios <br>";
         }
-        if(preg_match("/^([[:alpha:]{2}][\s]+)+$/",$texto)){
+        if(preg_match("/^[[:alpha:]]+( +[[:alpha:]]+)*$/",$texto)){
             $respuesta=$respuesta."La cadena contiene dos o más letras sueltas separadas por espacios <br>";
         }else{
             $respuesta=$respuesta."La cadena no contiene dos o más letras sueltas separadas por espacios <br>";
         }
-        if(preg_match("/^([a-z])+[\s]+([a-z]||[A-Z])+$/",$texto)){
+        if(preg_match("/^[a-z]+( +[a-z]+)*$/",$texto)){
             $respuesta=$respuesta."La cadena contiene una o más palabras <br>";
         }else{
             $respuesta=$respuesta."La cadena no contiene una o más palabras <br>";
