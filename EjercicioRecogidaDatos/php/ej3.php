@@ -9,8 +9,8 @@
 <body>
 <?php
    function mostrarAficiones($aficiones){
-       foreach $aficion in $aficiones{
-
+       foreach ($aficiones as $aficion){
+            echo"<p>Le gusta: ",$aficion,"</p>";
        }
    }
    
@@ -38,6 +38,7 @@ $aficiones=[];
     }else{
 
     }
+    mostrarAficiones($aficiones);
     
     
     
