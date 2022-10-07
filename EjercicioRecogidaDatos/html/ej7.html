@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/git/php/EjercicioRecogidaDatos/php/ej7.php" method="post">
+        <p>Rellene el formulario</p>
+        <br>
+        <p>Nombre:  <input type="text"  name="nombre">
+            <i>&nbsp;&nbsp;&nbsp;</i>Apellidos:<input type="text"  name="apellidos">
+            <i>&nbsp;&nbsp;&nbsp;</i>Email:<input type="email"  name="email">
+        </p>
+        <p>Contraseña:  <input type="password"  name="contraseña"><i>&nbsp;&nbsp;&nbsp;</i>
+            <b>Sexo:</b> <input type="radio" id="hombre" name="sexo" value="Hombre" >
+            <label for="huey">Hombre</label>
+
+
+
+            <input type="radio" id="mujer" name="sexo" value="Mujer">
+            <label for="dewey">Mujer</label>
+        
+            <b><i>&nbsp;&nbsp;&nbsp;</i>Nivel de Estudios:</b> <input type="radio" id="escolar" name="estudios" value="Certificado Escolar" >
+            <label for="escolar">Certificado Escolar</label>
+
+
+
+            <input type="radio" id="eso" name="estudios" value="Graduado ESO">
+            <label for="eso">Graduado ESO</label>
+        
+            <input type="radio" id="bachiller-fp" name="estudios" value="Bachiller-FP">
+            <label for="bachiller-fp">Bachiller-FP</label>
+
+            <input type="radio" id="diplomado" name="estudios" value="Diplomado">
+            <label for="diplomado">Diplomado</label>
+
+            <input type="radio" id="licenciado/doctorado" name="estudios" value="Licenciado/Doctorado">
+            <label for="licenciado/doctorado">Licenciado o Doctorado</label>
+        </p>
+
+        <p><b>Aficiones:</b> <input type="checkbox" id="aficion1" name="aficion1" value="Cine">
+            <label for="aficion1">Cine</label>
+            <input type="checkbox" id="aficion2" name="aficion2" value="Literatura">
+            <label for="aficion2"> Literatura</label>
+            <input type="checkbox" id="aficion3" name="aficion3" value="Musica">
+            <label for="aficion3"> Musica</label>
+            <input type="checkbox" id="aficion4" name="aficion4" value="Deporte">
+            <label for="aficion4"> Deporte</label>
+            
+        </p>
+        <p>Dia de la semana que te interesa recibirlo:</p>
+        <p>Opinion: <textarea  name="opinion"></textarea></p>
+
+
+
+
+        <input type="submit" name="enviar" value="Enviar">
+        <input type="reset" name="borrar" value="Borrar">
+
+
+    </form>
+
+</body>
+
+</html>
