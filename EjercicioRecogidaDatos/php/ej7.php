@@ -22,6 +22,7 @@
 function mostrarFallo(){
 echo "<p style='color:red;'>Tiene que rellenar los campos nombre y apellidos</p>";
 }
+$error=0;
 
 if (isset(($_REQUEST["nombre"] )) && isset(($_REQUEST["apellidos"] ))){
     $nombre=($_REQUEST["nombre"] );
@@ -30,6 +31,7 @@ if (isset(($_REQUEST["nombre"] )) && isset(($_REQUEST["apellidos"] ))){
         mostrarNombre($nombre,$apellidos);
     }else{
         mostrarFallo();
+        $error++;
     }
     
 }
@@ -40,6 +42,7 @@ if (isset($_REQUEST["peso"] ) ){
       echo "<p>Peso: ",$peso,"</p>";
     }else{
         echo "<p style='color:red;'>Tiene que rellenar el campo peso</p>";
+        $error++;
     }
     
 }
@@ -55,6 +58,7 @@ if (isset(($_REQUEST["sexo"] )) ){
     
 }else{
     echo "<p style='color:red;'>Tiene que rellenar el campo sexo</p>";
+    $error++;
 }
 if (isset(($_REQUEST["email"] )) ){
     $email=($_REQUEST["email"] );
@@ -62,13 +66,12 @@ if (isset(($_REQUEST["email"] )) ){
         echo"<p>Email: ",$email,"</p>";
     }else{
         echo "<p style='color:red;'>Tiene que rellenar el campo email</p>";
+        $error++;
     }
    
    
      
     
-}else{
-    echo "<p style='color:red;'>Tiene que rellenar el campo estado civil</p>";
 }
 
 if (isset(($_REQUEST["contraseña"] )) ){
@@ -79,11 +82,10 @@ if (isset(($_REQUEST["contraseña"] )) ){
    echo"<p>Contraseña: ",$contraseña,"</p>";
 }else{
     echo "<p style='color:red;'>Tiene que rellenar el campo contraseña</p>";
+    $error++;
 }
      
     
-}else{
-    echo "<p style='color:red;'>Tiene que rellenar el campo contraseña</p>";
 }
 
 
@@ -95,6 +97,7 @@ if (isset(($_REQUEST["estudios"] )) ){
     
 }else{
     echo "<p style='color:red;'>Tiene que rellenar el campo estado civil</p>";
+    $error++;
 }
 
    
@@ -121,6 +124,7 @@ if (isset(($_REQUEST["estudios"] )) ){
     }
     if ($contaficiones==0){
         echo "<p style='color:red;'>Tiene que marcar alguna aficion</p>";
+        $error++;
     }else{
 
     }
@@ -136,16 +140,24 @@ if (isset(($_REQUEST["opinion"] )) ){
    echo"<p>Opinion: ",$opinion,"</p>";
 }else{
     echo "<p style='color:red;'>Tiene que rellenar el campo opinion</p>";
+    $error++;
 }
      
     
+}
+
+if($error==0){
+    echo"    <a href='\git\php\EjercicioRecogidaDatos\html/enviar.html'>Enviar</a>
+    <a href='\git\php\EjercicioRecogidaDatos\html/ej7.html'>Volver a escribir</a>";
 }else{
-    echo "<p style='color:red;'>Tiene que rellenar el campo contraseña</p>";
+    echo"    
+    <a href='\git\php\EjercicioRecogidaDatos\html/ej7.html'>Volver a escribir</a>";
 }
     
     
     
     ?>
+
 </body>
 
 
