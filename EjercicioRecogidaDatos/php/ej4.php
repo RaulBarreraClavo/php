@@ -37,10 +37,10 @@ if ($contcolor<2){
    function cambiarcolor($fondo,$letra){
     print "<style>";
         print"body{";
-            print "background-color:".$fondo;
-            print"color:".$letra;
+            print "background-color:$fondo;";
+            print"color:$letra;";
         print"}";
-    print"<style>";
+    print"</style>";
    }
    
     
