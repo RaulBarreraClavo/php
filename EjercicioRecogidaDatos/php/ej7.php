@@ -131,6 +131,31 @@ if (isset(($_REQUEST["estudios"] )) ){
 
     
     mostrarAficiones($aficiones);
+    function mostrarDia($dia)
+    {
+        $error=0;
+    
+            if($dia== "..."){
+                echo "<p style='color:red;'>Tiene que marcar alguna opcion de dia de la semana</p>";
+                $error++;
+            }else{
+                echo "<p>Dia de la semana: ",$dia," </p>";
+            }
+              return $error;
+    }
+
+
+
+    if (isset($_REQUEST["dia"])) {
+        $dia = ($_REQUEST["dia"]);
+        if(mostrarDia($dia)>0){
+            $error++;
+        }
+    } else {
+
+        echo "<p style='color:red;'>Tiene que marcar alguna opcion de dia de la semana</p>";
+        $error++;
+    }
     
 if (isset(($_REQUEST["opinion"] )) ){
     $opinion=($_REQUEST["opinion"] );

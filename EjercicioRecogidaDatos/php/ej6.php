@@ -43,6 +43,37 @@ if (isset($_REQUEST["peso"] ) ){
     }
     
 }
+function mostrarEdad($edad)
+{
+    switch ($edad) {
+        case "...":
+            echo "<p style='color:red;'>Tiene que marcar alguna opcion</p>";
+            break;
+        case "menos20":
+            echo "<p>Edad: Menos de 20 años</p>";
+            break;
+        case "20-39":
+            echo "<p>Edad: Entre 20 y 39 años</p>";
+            break;
+        case "40-59":
+            echo "<p>Edad: Entre 40 y 59 años</p>";
+            break;
+        case "mas60":
+            echo "<p>Edad: 60 años o más</p>";
+            break;
+    }
+}
+
+
+
+if (isset($_REQUEST["edad"])) {
+    $edad = ($_REQUEST["edad"]);
+    mostrarEdad($edad);
+} else {
+
+    echo "<p style='color:red;'>Tiene que marcar alguna opcion de edad</p>";
+}
+
    
 $contaficiones=0;
 $aficiones=[];

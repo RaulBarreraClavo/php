@@ -12,27 +12,28 @@
     <form action="/git/php/EjercicioRecogidaDatos/php/ej7.php" method="post">
         <p>Rellene el formulario</p>
         <br>
-        <p>Nombre:  <input type="text"  name="nombre">
-            <i>&nbsp;&nbsp;&nbsp;</i>Apellidos:<input type="text"  name="apellidos">
-            <i>&nbsp;&nbsp;&nbsp;</i>Email:<input type="email"  name="email">
+        <p>Nombre: <input type="text" name="nombre">
+            <i>&nbsp;&nbsp;&nbsp;</i>Apellidos:<input type="text" name="apellidos">
+            <i>&nbsp;&nbsp;&nbsp;</i>Email:<input type="email" name="email">
         </p>
-        <p>Contraseña:  <input type="password"  name="contraseña"><i>&nbsp;&nbsp;&nbsp;</i>
-            <b>Sexo:</b> <input type="radio" id="hombre" name="sexo" value="Hombre" >
+        <p>Contraseña: <input type="password" name="contraseña"><i>&nbsp;&nbsp;&nbsp;</i>
+            <b>Sexo:</b> <input type="radio" id="hombre" name="sexo" value="Hombre">
             <label for="huey">Hombre</label>
 
 
 
             <input type="radio" id="mujer" name="sexo" value="Mujer">
             <label for="dewey">Mujer</label>
-        
-            <b><i>&nbsp;&nbsp;&nbsp;</i>Nivel de Estudios:</b> <input type="radio" id="escolar" name="estudios" value="Certificado Escolar" >
+
+            <b><i>&nbsp;&nbsp;&nbsp;</i>Nivel de Estudios:</b> <input type="radio" id="escolar" name="estudios"
+                value="Certificado Escolar">
             <label for="escolar">Certificado Escolar</label>
 
 
 
             <input type="radio" id="eso" name="estudios" value="Graduado ESO">
             <label for="eso">Graduado ESO</label>
-        
+
             <input type="radio" id="bachiller-fp" name="estudios" value="Bachiller-FP">
             <label for="bachiller-fp">Bachiller-FP</label>
 
@@ -51,10 +52,19 @@
             <label for="aficion3"> Musica</label>
             <input type="checkbox" id="aficion4" name="aficion4" value="Deporte">
             <label for="aficion4"> Deporte</label>
-            
+
         </p>
-        <p>Dia de la semana que te interesa recibirlo:</p>
-        <p>Opinion: <textarea  name="opinion"></textarea></p>
+        <p>Dia de la semana que te interesa recibirlo:<SELECT name="dia">
+                <OPTION value="..." selected>...
+                <OPTION value="Lunes">Lunes
+                <OPTION value="Martes">Martes
+                <OPTION value="Miercoles">Miercoles
+                <OPTION value="Jueves">Jueves
+                <OPTION value="Viernes">Viernes
+                <OPTION value="Sabado">Sabado
+                <OPTION value="Domingo">Domingo
+            </SELECT></p>
+        <p>Opinion: <textarea name="opinion"></textarea></p>
 
 
 
