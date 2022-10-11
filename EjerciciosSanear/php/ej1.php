@@ -8,49 +8,40 @@
 </head>
 <body>
 <?php
-function inicializarFormulario($tipo){
-    if($tipo=="inicio"){
-        echo '<form  method="post" >
-    <p>Validacion</p>
-    <br>
-    <p id="nombre" >Nombre:  <input type="text" name="nombre"></p>
-    <p id="telefono">Telefono:  <input type="number" id="telefono" name="telefono"></p>
-    <p id="email">Correo:  <input type="email" id="email"  name="email"></p>
+if(isset($_REQUEST['enviar'])){
+
+// function inicializarFormulario($tipo){
+//     if($tipo=="inicio"){
+//         echo '<div class="inicio"><form  method="post"  >
+//     <p>Validacion</p>
+//     <br>
+//     <p id="nombre" class="nombre" >Nombre:  <input type="text" name="nombre"></p>
+//     <p id="telefono" class="telefono">Telefono:  <input type="number" id="telefono" name="telefono"></p>
+//     <p id="email" class="email">Correo:  <input type="email" id="email"  name="email"></p>
   
-   <input type="submit" name="enviar" value="Enviar">
-    <input type="reset" name="borrar" value="Borrar">
+//    <input type="submit" name="enviar" value="Enviar">
+//     <input type="reset" name="borrar" value="Borrar">
 
 
-</form>      ';
-    }elseif($tipo=="fallo"){
-        echo '<form  method="post" >
-        <p>Validacion</p>
-        <br>
-        <p id="nombre" >Nombreaaaaa:  <input type="text" name="nombre"></p>
-        <p id="telefono">Telefono:  <input type="number" id="telefono" name="telefono"></p>
-        <p id="email">Correo:  <input type="email" id="email"  name="email"></p>
+// </form> </div>     ';
+//     }
+    // elseif($tipo=="fallo"){
+    //     echo '<form  method="post" >
+    //     <p>Validacion</p>
+    //     <br>
+    //     <p id="nombre" style="color:red;" >Nombreaaaaa:  <input type="text" name="nombre"></p>
+    //     <p id="telefono" style="color:red;">Telefono:  <input type="number" id="telefono" name="telefono"></p>
+    //     <p id="email" style="color:red;">Correo:  <input type="email" id="email"  name="email"></p>
       
-       <input type="submit" name="enviar" value="Enviar">
-        <input type="reset" name="borrar" value="Borrar">
+    //    <input type="submit" name="enviar" value="Enviar">
+    //     <input type="reset" name="borrar" value="Borrar">
     
     
-    </form>      ';
-    }elseif($tipo=="enviado"){
-        echo '<form  method="post" >
-        <p>Validacion</p>
-        <br>
-        <p id="nombre" >Nombreaaaaa:  <input type="text" name="nombre"></p>
-        <p id="telefono">Teleaaaaafono:  <input type="number" id="telefono" name="telefono"></p>
-        <p id="email">Correo:  <input type="email" id="email"  name="email"></p>
-      
-       <input type="submit" name="enviar" value="Enviar">
-        <input type="reset" name="borrar" value="Borrar">
+    // </form>      ';
+    // }
     
-    
-    </form>      ';
-    }
-    
-}
+// }
+// inicializarFormulario("inicio");
 
 
 function sanear(){
@@ -79,7 +70,7 @@ sanear();
    
 }
 
-$fallos=[];
+$fallos=["1"];
 $contfallos=0;
    
     if (isset($_REQUEST["nombre"] )){
@@ -96,6 +87,12 @@ $contfallos=0;
         }else{
             array_push($fallos,"nombre");
             $contfallos++;
+            print "<style>";
+        print".nombre{";
+           
+            print"color:red;";
+        print"}";
+    print"</style>";
         }
         
     }
@@ -108,11 +105,23 @@ $contfallos=0;
             }else{
                 array_push($fallos,"telefono");
                 $contfallos++;
+                print "<style>";
+                print".telefono{";
+                   
+                    print"color:red;";
+                print"}";
+            print"</style>";
             }
             
         }else{
             array_push($fallos,"telefono");
             $contfallos++;
+            print "<style>";
+            print".telefono{";
+               
+                print"color:red;";
+            print"}";
+        print"</style>";
         }
         
     }
@@ -120,29 +129,52 @@ $contfallos=0;
         $email=($_REQUEST["email"] );
        
         if (!empty($email )){
-            if(preg_match("/^[[:alpha:]]+$/",$email)){
+           
                 echo"<p>Email: ",$email,"</p>";
-            }else{
-            array_push($fallos,"email");
-            $contfallos++;
-            }
+            
         }else{
             array_push($fallos,"email");
             $contfallos++;
+            print "<style>";
+            print".email{";
+               
+                print"color:red;";
+            print"}";
+        print"</style>";
         }
         
     }
-    if($contfallos>0){
-        mostrarFallo($fallos);
-        inicializarFormulario("fallo");
-    }else{
-        inicializarFormulario("enviado");
+    if($contfallos==0){
+        print "<style>";
+        print".inicio{";
+           
+            print"visibility:hidden;";
+            print"widht:1px;";
+            print"heigth:1px;";
+        print"}";
+    print"</style>";
+        
     }
     
     
+}
     
     
     ?>
+
+    <div class="inicio"><form  method="post"  >
+    <p>Validacion</p>
+    <br>
+    <p id="nombre" class="nombre" >Nombre:  <input type="text" name="nombre"></p>
+    <p id="telefono" class="telefono">Telefono:  <input type="number" id="telefono" name="telefono"></p>
+    <p id="email" class="email">Correo:  <input type="email" id="email"  name="email"></p>
+  
+   <input type="submit" name="enviar" value="Enviar">
+    <input type="reset" name="borrar" value="Borrar">
+
+
+</form> </div>   
+
 </body>
 
 </html>

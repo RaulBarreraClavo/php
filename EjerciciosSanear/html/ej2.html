@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/git/php/EjerciciosSanear/php/ej2.php" method="post">
+        <p>Rellene el formulario</p>
+        <br>
+        <p>Nombre: <input type="text" name="nombre">
+
+        </p>
+        <p>Contraseña: <input type="password" name="contraseña"><i>&nbsp;&nbsp;&nbsp;</i>
+
+            <b><i>&nbsp;&nbsp;&nbsp;</i>Nacionalidad:</b> <input type="radio" id="espanola" name="nacionalidad"
+                value="espanola">
+            <label for="espanola">Española</label>
+
+
+
+            <input type="radio" id="francesa" name="nacionalidad" value="francesa">
+            <label for="francesa">Francesa</label>
+            <input type="radio" id="italiana" name="nacionalidad" value="italiana">
+            <label for="italiana">Italiana</label>
+            <input type="radio" id="alemana" name="nacionalidad" value="alemana">
+            <label for="alemana">Alemana</label>
+        </p>
+
+        <p><b>Idiomas:</b> <input type="checkbox" id="castellano" name="castellano" value="castellano">
+            <label for="castellano">Castellano</label>
+            <input type="checkbox" id="aficion2" name="aficion2" value="Literatura">
+            <label for="aficion2"> Literatura</label>
+            <input type="checkbox" id="aficion3" name="aficion3" value="Musica">
+            <label for="aficion3"> Musica</label>
+            <input type="checkbox" id="aficion4" name="aficion4" value="Deporte">
+            <label for="aficion4"> Deporte</label>
+
+        </p>
+        <p>Dia de la semana que te interesa recibirlo:<SELECT name="dia">
+                <OPTION value="..." selected>...
+                <OPTION value="Lunes">Lunes
+                <OPTION value="Martes">Martes
+                <OPTION value="Miercoles">Miercoles
+                <OPTION value="Jueves">Jueves
+                <OPTION value="Viernes">Viernes
+                <OPTION value="Sabado">Sabado
+                <OPTION value="Domingo">Domingo
+            </SELECT></p>
+        <p>Opinion: <textarea name="opinion"></textarea></p>
+
+
+
+
+        <input type="submit" name="enviar" value="Enviar">
+        <input type="reset" name="borrar" value="Borrar">
+
+
+    </form>
+
+</body>
+
+</html>
