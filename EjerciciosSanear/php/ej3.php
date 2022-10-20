@@ -58,11 +58,11 @@ function sanear(){
 }
 sanear();
 
-   function mostrarNombre($nombre){
-        echo "<p>Su nombre es ",$nombre,"</p>";
+   function mostrarTexto($texto){
+        echo "<p>Su texto es ",$texto,"</p>";
    }
    function mostrarFallo($fallos){
-    if( in_array("nombre",$fallos)){
+    if( in_array("texto",$fallos)){
         
     }else{
         echo "bbb";
@@ -73,22 +73,22 @@ sanear();
 $fallos=["1"];
 $contfallos=0;
    
-    if (isset($_REQUEST["nombre"] )){
-        $nombre=($_REQUEST["nombre"] );
+    if (isset($_REQUEST["texto"] )){
+        $texto=($_REQUEST["texto"] );
        
-        if (!empty($nombre )){
-            if(preg_match("/^[[:alpha:]]+$/",$nombre)){
-                mostrarNombre($nombre);
+        if (!empty($texto )){
+            if(preg_match("/^[[:alpha:]]+$/",$texto)){
+             
             }else{
-            array_push($fallos,"nombre");
+            array_push($fallos,"texto");
             $contfallos++;
             }
             
         }else{
-            array_push($fallos,"nombre");
+            array_push($fallos,"texto");
             $contfallos++;
             print "<style>";
-        print".nombre{";
+        print".texto{";
            
             print"color:red;";
         print"}";
@@ -96,29 +96,15 @@ $contfallos=0;
         }
         
     }
-    
-    if (isset($_REQUEST["telefono"] )){
-        $telefono=($_REQUEST["telefono"] );
-       
-        if (!empty($telefono )){
-            if(preg_match("/^[6||9][0-9]{8}$/",$telefono)){
-                echo"<p>Telefono: ",$telefono,"</p>";
-            }else{
-                array_push($fallos,"telefono");
-                $contfallos++;
-                print "<style>";
-                print".telefono{";
-                   
-                    print"color:red;";
-                print"}";
-            print"</style>";
-            }
-            
+    if (isset(($_REQUEST["buscar"] )) ){
+        $buscar=($_REQUEST["buscar"] );
+        if (!empty($buscar )){
+      
         }else{
-            array_push($fallos,"telefono");
+            array_push($fallos,"buscar");
             $contfallos++;
             print "<style>";
-            print".telefono{";
+            print".buscar{";
                
                 print"color:red;";
             print"}";
@@ -126,26 +112,40 @@ $contfallos=0;
         }
         
     }
-    if (isset($_REQUEST["email"] )){
-        $email=($_REQUEST["email"] );
+
+    if (isset(($_REQUEST["genero"] )) ){
+        $genero=($_REQUEST["genero"] );
+        if (!empty($genero )){
        
-        if (!empty($email )){
+     
+        }else{
+            array_push($fallos,"genero");
+            $contfallos++;
+            print "<style>";
+            print".genero{";
+               
+                print"color:red;";
+            print"}";
+        print"</style>";
+        }
+        
+    }else{
+        array_push($fallos,"genero");
+        $contfallos++;
+        print "<style>";
+        print".genero{";
            
-                echo"<p>Email: ",$email,"</p>";
-            
-        }else{
-            array_push($fallos,"email");
-            $contfallos++;
-            print "<style>";
-            print".email{";
-               
-                print"color:red;";
-            print"}";
-        print"</style>";
-        }
-        
+            print"color:red;";
+        print"}";
+    print"</style>";
     }
+    
+    
+   
     if($contfallos==0){
+        mostrarTexto($texto);
+        echo"<p>Buscar: ",$buscar,"</p>";
+        echo"<p>Genero: ",$genero,"</p>";
         print "<style>";
         print".inicio{";
            
@@ -166,9 +166,27 @@ $contfallos=0;
     <div class="inicio"><form  method="post"  >
     <p>Validacion</p>
     <br>
-    <p id="nombre" class="nombre" >Nombre:  <input type="text" name="nombre"></p>
-    <p id="telefono" class="telefono">Telefono:  <input type="number" id="telefono" name="telefono"></p>
-    <p id="email" class="email">Correo:  <input type="email" id="email"  name="email"></p>
+    <p id="texto" class="texto" >Texto:  <input type="text" name="texto"></p>
+    <p id="buscar" class="buscar">Buscar:  <input type="radio" id="titulos" name="buscar"
+                value="titulos" checked>
+            <label for="titulos">Titulos de Cancion</label>
+
+
+
+            <input type="radio" id="nombres" name="buscar" value="nombres">
+            <label for="nombres">Nombres de Album</label>
+            <input type="radio" id="ambos" name="buscar" value="ambos">
+            <label for="ambos">Ambos Campos</label></p>
+    <p id="genero" class="genero">Genero musical:  <SELECT name="genero">
+                <OPTION value="todos" selected>Todos
+                <OPTION value="acustica">Acustica
+                <OPTION value="banda-sonora">Banda Sonora
+                <OPTION value="blues">Blues
+                <OPTION value="electronica">Electronica
+                <OPTION value="folk">Folk
+                <OPTION value="jazz">Jazz
+
+            </SELECT></p>
   
    <input type="submit" name="enviar" value="Enviar">
     <input type="reset" name="borrar" value="Borrar">
