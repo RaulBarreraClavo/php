@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="../php/ej1.php" method="post">
+        <p>Rellene el formulario</p>
+        <br>
+        <p>Nombre: <input type="text" name="nombre">
+
+        </p>
+        <p>Contraseña: <input type="password" name="contraseña"><i>&nbsp;&nbsp;&nbsp;</i>
+
+            <b><i>&nbsp;&nbsp;&nbsp;</i>Nacionalidad:</b> <input type="radio" id="espanola" name="nacionalidad"
+                value="espanola">
+            <label for="espanola">Española</label>
+
+
+
+            <input type="radio" id="francesa" name="nacionalidad" value="francesa">
+            <label for="francesa">Francesa</label>
+            <input type="radio" id="italiana" name="nacionalidad" value="italiana">
+            <label for="italiana">Italiana</label>
+            <input type="radio" id="alemana" name="nacionalidad" value="alemana">
+            <label for="alemana">Alemana</label>
+        </p>
+
+        <p><b>Idiomas:</b> <input type="checkbox" id="castellano" name="castellano" value="castellano">
+            <label for="castellano">Castellano</label>
+            <input type="checkbox" id="ingles" name="ingles" value="ingles">
+            <label for="ingles"> Ingles</label>
+            <input type="checkbox" id="frances" name="frances" value="frances">
+            <label for="frances"> Frances</label>
+            <input type="checkbox" id="italiano" name="italiano" value="italiano">
+            <label for="italiano"> Italiano</label>
+
+        </p>
+        <p>Educación:<SELECT name="estudios">
+                <OPTION value="..." selected>...
+                <OPTION value="nada">Sin estudios
+                <OPTION value="eso">Eso
+                <OPTION value="bachillerato">Bachillerato
+                <OPTION value="fp">Fp
+                <OPTION value="universitario">Universitario
+                <OPTION value="otros">Otros
+
+            </SELECT></p>
+        <p>Sitio web: <input type="text" id="sitioweb" name="sitioweb"></p>
+        <p>Correo: <input type="email" id="email" name="email"></p>
+
+
+
+
+
+        <input type="submit" name="enviar" value="Enviar">
+        <input type="reset" name="borrar" value="Borrar">
+
+
+    </form>
+
+</body>
+
+</html>
