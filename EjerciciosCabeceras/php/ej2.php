@@ -1,0 +1,38 @@
+<?php
+function sanear(){
+    foreach($_REQUEST as $key=>$valor){
+        if(!is_array($_REQUEST[$key])){
+            $_REQUEST[$key]=trim(htmlspecialchars(strip_tags($_REQUEST[$key]),ENT_QUOTES,"utf-8"));
+        }else{
+            foreach($_REQUEST[$key] as $posicion=>$dato){
+                $_REQUEST[$key][$posicion]=trim(htmlspecialchars(strip_tags($dato),ENT_QUOTES,"utf-8"));
+            }
+        }
+    }
+   
+}
+sanear();
+function validar($variable,$patron){
+    if(isset($_REQUEST[$variable])){
+        $valor=$_REQUEST[$variable];
+        if(!empty($valor)){
+            if(preg_match($patron,$valor)){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+
+    }else{
+        return false;
+    }
+}
+if(validar("clave","/^z80$/")){
+  
+   echo"<p>Bienvenido su clave es correcta</p>";
+}else{
+    header("Location: ./ej2a.php?error=1");
+}
+?>

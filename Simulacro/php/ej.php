@@ -17,7 +17,7 @@
                     $_REQUEST[$key]=trim(htmlspecialchars(strip_tags($_REQUEST[$key]),ENT_QUOTES,"utf-8"));
                 }else{
                     foreach($_REQUEST[$key] as $posicion=>$dato){
-                        $_REQUEST[$key][$posicion]=trim(htmlspecialchars(strip_tags($_REQUEST[$dato]),ENT_QUOTES,"utf-8"));
+                        $_REQUEST[$key][$posicion]=trim(htmlspecialchars(strip_tags($dato),ENT_QUOTES,"utf-8"));
                     }
 
                 }
