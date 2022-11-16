@@ -18,7 +18,10 @@ if(isset($_REQUEST["Crear"])){
         if(!empty($segundos)){
             if(preg_match("/^[0-9]+$/",$segundos)){
                 if($segundos<=60 and $segundos>=1){
-                    setcookie("cookie","1",time()+$segundos);
+                    $time = time()+$segundos;
+
+                    $tiempobase = $time;
+                    setcookie("cookie",$tiempobase,$time);
                     $mensaje="La cookie se ha creado correctamente, se destruira en $segundos segundos";
                 }else{
                     $mensaje="Los segundos no estan entre 1 y 60";
@@ -37,11 +40,25 @@ if(isset($_REQUEST["Crear"])){
    echo"<h1>$mensaje</h1>";
 }
 if(isset($_REQUEST["Comprobar"])){
-    $tiempo=$_COOKIE["cookie"];
-    echo"<h1>La cookie se destruira en $tiempo segundos</h1>";
+     
+    if(isset($_COOKIE["cookie"])){
+        setcookie("restante",$_COOKIE["cookie"]-time(),time()+3600);
+      
+         echo"<h1>La cookie se destruira en". $_COOKIE["restante"] ."segundos</h1>";
+    }else{
+        echo "<p>No existe la cookie</p>";
+    }
+  
 }
 if(isset($_REQUEST["Destruir"])){
-    setcookie("cookie","1",time()-60);
+    if(isset($_COOKIE["cookie"])){
+        setcookie("cookie","1",time()-60);
+        echo "<p>Cookie destruida</p>";
+    }else{
+        echo "<p>No existe la cookie</p>";
+    }
+    
+    
 }
 
 
