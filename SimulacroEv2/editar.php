@@ -3,6 +3,24 @@
 session_start();
 if($_SESSION["autorizado"]==true){
     try{
+        $id=$_GET["id"];
+        include "./crearBD.php";
+        $conexion=crearBD();
+        $consulta=$conexion->prepare("Select * from personas where id=:id");
+        $consulta->bindParam(":id",$id);
+        $consulta->setFetchMode(PDO::FETCH_ASSOC);
+        $consulta->execute();
+      
+        if($consulta->rowCount()>0){
+        
+       
+         while ($row = $consulta->fetch()){
+        $nombreantiguo=$row["nombre"];
+        $apellidosantiguo=$row["apellidos"];
+        $generoantiguo=$row["sexo"];
+         }
+        }
+
         if(isset($_REQUEST["enviar"])){
             function sanear()
             {
@@ -57,14 +75,13 @@ if($_SESSION["autorizado"]==true){
             }
 
             if($contfallos==0){
-                include "./crearBD.php";
-                $conexion=crearBD();
-                $insertar=$conexion->prepare("INSERT INTO `personas`  VALUES (NULL, :nombre, :apellidos, :genero); 
-                ");
+              
+                $insertar=$conexion->prepare("UPDATE personas set nombre=:nombre , apellidos=:apellidos, sexo=:genero WHERE id=:id; ");
                  $insertar->bindParam(":nombre",$nombre);
                  $insertar->bindParam(":apellidos",$apellidos);
                  $insertar->bindParam(":genero",$genero);
                 $insertar->execute();
+                header("Location:./listar.php");
             }
       
           
@@ -90,15 +107,29 @@ else{
     <title>Document</title>
 </head>
 <body>
-<h1>Insertado</h1>
+<h1>Editar</h1>
     <p><a href="./aplicacion.php">Volver</a></p>
     <form method="POST">
-        <p>Nombre:<input type="text" name="nombre"></p>
-        <p>Apellidos:<input type="text" name="apellidos"></p>
+        <p>Nombre:<input type="text" placeholder=<?php
+           echo $nombreantiguo;
+           
+        ?> name="nombre"></p>
+        <p>Apellidos:<input type="text" placeholder=<?php
+           echo $apellidosantiguo;
+           
+        ?> name="apellidos"></p>
         <p>Genero:<select name="genero">
-        <option selected value="...">...</option>
-            <option value="F">Femenino</option>
-            <option value="M">Masculino</option>
+     
+            <option <?php
+            if($generoantiguo=="F"){
+                echo "selected";
+            }
+            ?> value="F">Femenino</option>
+            <option <?php
+            if($generoantiguo=="M"){
+                echo "selected";
+            }
+            ?> value="M">Masculino</option>
         </select></p>
         <button type="submit" name="enviar">Insertar</button>
     </form>
